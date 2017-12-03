@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC
+		"-//Mort Bay Consulting//DTD Configure//EN"
+        "http://www.eclipse.org/jetty/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+	<New class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/MySqlDS</Arg>
+		<Arg>
+			<New class="org.apache.tomcat.jdbc.pool.DataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.0.30.131:3306/outside_db?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true</Set>
+				<Set name="username">belle</Set>
+				<Set name="password">belle@belle</Set>
+                <Set name="maxIdle">10</Set>
+                <Set name="maxActive">100</Set>
+				<Set name="testOnBorrow">true</Set>
+				<Set name="validationQuery">select 1</Set>
+				<Set name="removeAbandonedTimeout">60</Set>
+				<Set name="removeAbandoned">true</Set>
+			</New>
+		</Arg>
+	</New>
+	<New class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>java:comp/env/OracleDS</Arg>
+		<Arg>
+			<New class="org.apache.tomcat.jdbc.pool.DataSource">
+				<Set name="driverClassName">oracle.jdbc.driver.OracleDriver</Set>
+				<Set name="url">jdbc:oracle:thin:@10.0.30.184:1521:test</Set>
+				<Set name="username">yg_is</Set>
+				<Set name="password">yougou</Set>
+				<Set name="maxIdle">10</Set>
+				<Set name="maxActive">100</Set>
+                <Set name="testOnBorrow">true</Set>
+				<Set name="validationQuery">select 1 from dual</Set>
+                <Set name="removeAbandonedTimeout">60</Set>
+                <Set name="removeAbandoned">true</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
+
