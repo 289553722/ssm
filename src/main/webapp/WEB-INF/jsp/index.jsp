@@ -6,6 +6,6 @@
     <title>欢迎访问我的web</title>
 </head>
 <body>
-    ${name},你好。Welcome to my web.哈哈
+    您现在访问的页面是${name}
 </body>
 </html>

@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <display-name>normal web</display-name>
+    <display-name>ssm</display-name>
 
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>normalWeb</param-value>
+        <param-value>ssm</param-value>
     </context-param>
-
+    <!-- 加载spring配置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath*:/applicationContext.xml
+            classpath*:/applicationContext*.xml
         </param-value>
     </context-param>
 
@@ -36,13 +36,34 @@
         <url-pattern>*.sc</url-pattern>
     </filter-mapping>
 
+    <!-- Spring 启动 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Spring 防内存溢出 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <!-- commons.fileupload 自动清除临时文件 -->
+    <listener>
+        <listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+    </listener>
+    <!-- 配置logback监听 -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>classpath:logback.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+
     <!-- Spring MVC -->
     <servlet>
         <servlet-name>springMvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:/spring-mvc.xml</param-value>
+            <param-value>classpath*:/springMvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -55,7 +76,5 @@
     <welcome-file-list>
         <welcome-file>index.sc</welcome-file>
     </welcome-file-list>
-
-
-
+    
 </web-app>
