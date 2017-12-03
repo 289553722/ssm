@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wind.ssm.manage.user.dao.UserMapper">
+    <resultMap id="user" type="com.wind.ssm.manage.user.vo.User">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="no" column="no" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
+        <result property="birthDay" column="birth_day" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="baseColumn" >
+        id,no,name,password,age,birth_day,create_time,update_time
+    </sql>
+    
+    <sql id="where">
+        <if test="id != null and id != ''">
+            and id = #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="name != null and name != ''">
+            and name = #{name,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <sql id="set">
+        <if test="id != null">
+            id = #{id,jdbcType=VARCHAR},
+        </if>
+        <if test="no != null">
+            no = #{no,jdbcType=INTEGER},
+        </if>
+        <if test="name != null">
+            name = #{name,jdbcType=INTEGER},
+        </if>
+        <if test="password != null">
+            password = #{password,jdbcType=VARCHAR},
+        </if>
+        <if test="age != null">
+            age = #{age,jdbcType=INTEGER},
+        </if>
+        <if test="birthDay != null">
+            birthDay = #{birthDay,jdbcType=TIMESTAMP},
+        </if>
+        <if test="createTime != null">
+            createTime = #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updateTime != null">
+            updateTime = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </sql>
+
+    <select id="listUser" parameterType="com.wind.ssm.manage.user.vo.User" resultMap="user">
+        select <include refid="baseColumn"/> from t_ssm_user where 1=1
+        <include refid="where" />
+        order by no desc
+    </select>
+
+</mapper>
