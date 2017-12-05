@@ -5,12 +5,11 @@
 
 # idea
 .idea/
-*.ipr
 *.iml
+*.ipr
 *.iws
 
 #eclipse
-/.settings
-/.classpath
-/.project
-/bin/
+.settings/
+.classpath
+.project
