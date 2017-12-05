@@ -1,6 +1,6 @@
 package com.wind.ssm.manage.user.dao;
 
-import com.wind.ssm.manage.user.vo.User;
+import com.wind.ssm.manage.user.model.UserDo;
 
 import java.util.List;
 
@@ -8,5 +8,5 @@ import java.util.List;
  * 用户映射接口
  */
 public interface UserMapper {
-    List<User> listUser(User user);
+    List<UserDo> listUserDo(UserDo userDo);
 }

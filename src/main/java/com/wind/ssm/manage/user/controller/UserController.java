@@ -1,8 +1,8 @@
 package com.wind.ssm.manage.user.controller;
 
 import com.wind.ssm.common.util.JsonUtil;
-import com.wind.ssm.manage.user.service.UserService;
-import com.wind.ssm.manage.user.vo.User;
+import com.wind.ssm.manage.user.model.UserDo;
+import com.wind.ssm.manage.user.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -21,12 +21,12 @@ public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     
     @Resource
-    private UserService userService;
+    private IUserService userService;
     
     @RequestMapping("/list")
     public String list(ModelMap map){
-        User user = new User();
-        List<User> userList = userService.listUser(user);
+        UserDo user = new UserDo();
+        List<UserDo> userList = userService.listUserDo(user);
         map.put("userList", userList);
         return "/user/list";
     }
@@ -34,10 +34,10 @@ public class UserController {
     @RequestMapping("/sJson")
     @ResponseBody
     public Object sJson(){
-        User wind = new User("wind","一行白鹭上青天",10);
-        User libai = new User("libai","莫学我",3000);
+        UserDo wind = new UserDo("wind","一行白鹭上青天",10);
+        UserDo libai = new UserDo("libai","莫学我",3000);
         wind.setBirthDay(new Date());
-        List<User> userList = new ArrayList<User>();
+        List<UserDo> userList = new ArrayList<UserDo>();
         userList.add(wind);
         userList.add(libai);
         return userList;
@@ -46,10 +46,10 @@ public class UserController {
     @RequestMapping("/oJson")
     @ResponseBody
     public String oJson(){
-        User wind = new User("晶晶","789456123",987);
-        User libai = new User("少少","嘻嘻中",1);
+        UserDo wind = new UserDo("晶晶","789456123",987);
+        UserDo libai = new UserDo("少少","嘻嘻中",1);
         libai.setBirthDay(new Date());
-        List<User> userList = new ArrayList<User>();
+        List<UserDo> userList = new ArrayList<UserDo>();
         userList.add(wind);
         userList.add(libai);
         return JsonUtil.beanToJson(userList);

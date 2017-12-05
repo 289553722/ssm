@@ -200,6 +200,7 @@
 		<!-- 设定打包的包名 -->
         <finalName>ssm</finalName>
         <!-- 确保打包的程序包含xml等配置文件 -->
+        <!--
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -211,6 +212,7 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+        -->
         
         <plugins>
             <!-- compiler插件, 设定JDK版本 -->

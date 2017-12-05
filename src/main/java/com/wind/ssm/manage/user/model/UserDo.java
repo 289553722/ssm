@@ -1,8 +1,8 @@
-package com.wind.ssm.manage.user.vo;
+package com.wind.ssm.manage.user.model;
 
 import java.util.Date;
 
-public class User {
+public class UserDo {
     private String id;
     private Integer no;
     private String name;
@@ -12,9 +12,9 @@ public class User {
     private Date createTime;
     private Date updateTime;
 
-    public User( ) { }
+    public UserDo( ) { }
     
-    public User(String name, String password, Integer age) {
+    public UserDo(String name, String password, Integer age) {
         this.name = name;
         this.password = password;
         this.age = age;
