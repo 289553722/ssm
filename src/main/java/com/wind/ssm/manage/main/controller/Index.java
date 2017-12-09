@@ -13,7 +13,6 @@ public class Index {
     
     @RequestMapping("/index")
     public String index(ModelMap map){
-        map.put("name", "首页");
         return "/index";
     }
 }

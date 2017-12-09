@@ -1,11 +1,24 @@
-<#include "/layout/head.ftl">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>ftl</title>
+    <#include "/layout/meta.ftl"/>
+    <title>用户管理系统</title>
+    <#include "/layout/headCss.ftl"/>
 </head>
-<body>
-    您现在访问的页面是${name}${ctx}
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <#include "/layout/header.ftl"/>
+    <#include "/layout/menu.ftl"/>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">欢迎访问</div>
+    </div>
+
+    <#include "/layout/footer.ftl"/>
+</div>
+
+<#include "/layout/footJs.ftl"/>
+<script src="${ctx}/static/js/list.js" type="text/javascript"></script>
 </body>
 </html>
