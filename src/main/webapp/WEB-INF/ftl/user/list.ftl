@@ -11,17 +11,17 @@
 <#include "/layout/menu.ftl"/>
 
     <div class="layui-body">
-        <form class="layui-form" action="">
+        <form class="layui-form" action="${ctx}/user/list.sc" id="queryForm">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
             <fieldset class="layui-elem-field">
                 <div class="layui-field-box">
-                    <button class="layui-btn layui-btn-sm" id="add">
+                    <a class="layui-btn layui-btn-sm" id="add">
                         <i class="layui-icon">&#xe608;</i> 添加
-                    </button>
-                    <button class="layui-btn layui-btn-sm" id="batchRemove">
+                    </a>
+                    <a class="layui-btn layui-btn-sm" id="batchRemove">
                         <i class="layui-icon">&#xe640;</i> 批量删除
-                    </button>
+                    </a>
                 </div>
             </fieldset>
             <fieldset class="layui-elem-field">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="layui-inline">&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="layui-btn layui-btn-sm">
+                        <button class="layui-btn layui-btn-sm" id="query">
                             查询
                         </button>
                     </div>
