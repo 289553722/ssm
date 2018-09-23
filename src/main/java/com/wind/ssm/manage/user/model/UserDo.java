@@ -18,7 +18,7 @@ public class UserDo {
         this.name = name;
         this.password = password;
         this.age = age;
-    } 
+    }
 
     public String getId() {
         return id;
